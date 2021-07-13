@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pax.vas.stacklytics.sample.MainActivity">
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/jvm_crash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="产生一个JAVA异常" />
+
+        <Button
+            android:id="@+id/native_crash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="产生一个native异常" />
+
+        <Button
+            android:id="@+id/anr_crash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="产生一个ANR异常" />
+
+        <EditText
+            android:id="@+id/event_id_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入eventId"
+            android:minHeight="50dp"
+            android:textColor="#2b2b2b"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/send_event"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送一个event事件" />
+
+        <LinearLayout
+            android:id="@+id/param_layout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
