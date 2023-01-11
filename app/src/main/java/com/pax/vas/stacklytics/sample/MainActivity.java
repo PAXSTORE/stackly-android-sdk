@@ -9,10 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.pax.vas.stacklytics.BreakPad;
-import com.pax.vas.stacklytics.bean.EventInfo;
-import com.pax.vas.stacklytics.event.exception.EventFailedException;
-import com.pax.vas.stacklytics.reporter.Stacklytics;
+import com.pax.vas.stackly.BreakPad;
+import com.pax.vas.stackly.bean.EventInfo;
+import com.pax.vas.stackly.event.exception.EventFailedException;
+import com.pax.vas.stackly.reporter.Stackly;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Map<String, String> param = new HashMap<>();
         EventInfo eventInfo = EventInfo.newBuilder().setEventId("eventId").setEventTime(System.currentTimeMillis()).setParam(param).build();
         try {
-            Stacklytics.handleEvent(eventInfo);
+            Stackly.handleEvent(eventInfo);
         } catch (EventFailedException e) {
             e.printStackTrace();
         }

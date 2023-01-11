@@ -6,9 +6,9 @@ import android.content.Context;
 import android.os.Build;
 import android.util.Log;
 
-import com.pax.vas.stacklytics.reporter.Stacklytics;
-import com.pax.vas.stacklytics.sender.PackReportData;
-import com.pax.vas.stacklytics.sender.ReportSenderListener;
+import com.pax.vas.stackly.reporter.Stackly;
+import com.pax.vas.stackly.sender.PackReportData;
+import com.pax.vas.stackly.sender.ReportSenderListener;
 
 import org.acra.collector.CrashReportData;
 
@@ -18,9 +18,9 @@ public class App extends Application implements PackReportData {
     private static final String TAG = App.class.getSimpleName();
 
     @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        Stacklytics.I.install(this)
+    public void onCreate() {
+        super.onCreate();
+        Stackly.I.install(this)
                 .setFormUri("http://xxxxxxx")
                 .setReportSenderListener(new ReportSenderListener<CrashReportData>() {
                     @Override
@@ -50,7 +50,6 @@ public class App extends Application implements PackReportData {
                 .setSecret("xxxxxxx")//set your secret
                 .setAlias(getSN(getApplicationContext()))//set your alias
                 .init();
-
     }
 
     @SuppressLint({"MissingPermission"})

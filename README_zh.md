@@ -76,10 +76,9 @@ public class BaseApplication extends Application implements PackReportData {
     private String APP_SECRET = "Your APPSECRET";
     private String ALIAS = Build.SERIAL;
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        Stacklytics.I.install(this)
+     public void onCreate() {
+        super.onCreate();
+          Stackly.I.install(this)
                 .setReportSenderListener(new ReportSenderListener<CrashReportData>() {
                     @Override
                     public void onSendStart() {
@@ -104,9 +103,10 @@ public class BaseApplication extends Application implements PackReportData {
                     }
                 })
                 .setSecret(APP_SECRET)//set your secret
+            	//Alias cannot be null or empty
                 .setAlias(ALIAS)//set your alias
                 .init();
-    }
+     }
 
     //获取异常报告数据，可以对其进行自定义处理、返回json字符串
     @Override
@@ -457,13 +457,13 @@ e.g. To exclude 'com.google.code.gson:gson:2.8.5' in SDK, you can use below:
 See the [Apache 2.0 license](https://github.com/PAXSTORE/paxstore-3rd-app-android-sdk/blob/master/LICENSE) file for details.
 
     Copyright 2018 PAX Computer Technology(Shenzhen) CO., LTD ("PAX")
-
+    
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at following link.
-
+    
          http://www.apache.org/licenses/LICENSE-2.0
-
+    
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.

@@ -79,11 +79,10 @@ public class BaseApplication extends Application  {
     //todo make sure to replace with your own app's appSecret and alias
     private String APP_SECRET = "Your APPSECRET";
     private String ALIAS = Build.SERIAL;
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        Stackly.I.install(this)
+    
+     public void onCreate() {
+        super.onCreate();
+          Stackly.I.install(this)
                 .setReportSenderListener(new ReportSenderListener<CrashReportData>() {
                     @Override
                     public void onSendStart() {
@@ -111,7 +110,7 @@ public class BaseApplication extends Application  {
             	//Alias cannot be null or empty
                 .setAlias(ALIAS)//set your alias
                 .init();
-    }
+     }
 }
 ```
 ### 第三步:使用案例
