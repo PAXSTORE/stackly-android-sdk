@@ -20,7 +20,7 @@ import java.util.Map;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
     private static final String TAG = "CrashActivity";
     private static final int PERMISSION_CODE = 1000;
 

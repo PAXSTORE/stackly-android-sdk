@@ -7,14 +7,11 @@ import android.os.Build;
 import android.util.Log;
 
 import com.pax.vas.stackly.reporter.Stackly;
-import com.pax.vas.stackly.sender.PackReportData;
-import com.pax.vas.stackly.sender.ReportSenderListener;
-
-import org.acra.collector.CrashReportData;
+import com.pax.vas.stackly.sender.strategy.ReportFlags;
 
 import java.lang.reflect.Method;
 
-public class App extends Application implements PackReportData {
+public class App extends Application {
     private static final String TAG = App.class.getSimpleName();
 
     @Override
@@ -22,33 +19,9 @@ public class App extends Application implements PackReportData {
         super.onCreate();
         Stackly.I.install(this)
                 .setFormUri("http://xxxxxxx")
-                .setReportSenderListener(new ReportSenderListener<CrashReportData>() {
-                    @Override
-                    public void onSendStart() {
-                        Log.d(TAG, "onSendStart");
-                    }
-
-                    @Override
-                    public boolean bypass(CrashReportData crashReportData) {
-                        Log.d(TAG, "bypass");
-                        return false;
-                    }
-
-
-                    @Override
-                    public void onSendCompleted() {
-                        Log.d(TAG, "onSendCompleted");
-
-                    }
-
-                    @Override
-                    public void onSendError(Throwable throwable) {
-                        Log.d(TAG, "onSendError");
-                    }
-                })
-                .setCustomPackData(this)
                 .setSecret("xxxxxxx")//set your secret
                 .setAlias(getSN(getApplicationContext()))//set your alias
+                .setFlags(ReportFlags.FLAG_ANR_WIFI_ONLY | ReportFlags.FLAG_JAVA_NOT_UPLOAD_TWO_HOURS)
                 .init();
     }
 
@@ -72,11 +45,5 @@ public class App extends Application implements PackReportData {
             Log.e(TAG, "getSN error:" + e);
         }
         return serialNumber;
-    }
-
-
-    @Override
-    public String getReportContent(CrashReportData crashReportData) {
-        return "{\"REPORT_ID\":\"1234\"}";
     }
 }
