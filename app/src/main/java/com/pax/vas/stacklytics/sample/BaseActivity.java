@@ -2,7 +2,8 @@ package com.pax.vas.stacklytics.sample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.pax.vas.stackly.reporter.Stackly;
+import com.pax.vas.stackly.Stackly;
+
 
 public class BaseActivity extends AppCompatActivity {
     @Override

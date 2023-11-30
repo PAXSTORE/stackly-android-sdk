@@ -5,14 +5,13 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.pax.vas.stackly.BreakPad;
-import com.pax.vas.stackly.bean.EventInfo;
+import com.pax.vas.stackly.Stackly;
+import com.pax.vas.stackly.event.bean.EventInfo;
 import com.pax.vas.stackly.event.exception.EventFailedException;
-import com.pax.vas.stackly.reporter.Stackly;
+import com.pax.vas.stackly.exception.presenter.BreakPad;
 
 import java.util.HashMap;
 import java.util.Map;

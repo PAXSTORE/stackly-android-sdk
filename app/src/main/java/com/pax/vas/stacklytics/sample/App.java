@@ -6,8 +6,9 @@ import android.content.Context;
 import android.os.Build;
 import android.util.Log;
 
-import com.pax.vas.stackly.reporter.Stackly;
-import com.pax.vas.stackly.sender.strategy.ReportFlags;
+
+import com.pax.vas.stackly.Stackly;
+import com.pax.vas.stackly.exception.sender.strategy.ReportFlags;
 
 import java.lang.reflect.Method;
 

@@ -15,7 +15,7 @@ Stackly 是一个实时异常报告器，可帮助开发人员跟踪、优先级
 - 用户运营数据上送
 - 应用使用次数及使用时长收集上送
 
-创建应用程序时，请注意由MAXSTORE系统生成的AppKey和AppSecret。
+ 创建应用程序时，请注意由MAXSTORE系统生成的AppKey和AppSecret。
 <br>请参阅以下步骤进行集成。
 
 ## 要求
@@ -32,7 +32,7 @@ Stackly 是一个实时异常报告器，可帮助开发人员跟踪、优先级
 Gradle:
 
 ```groovy
-implementation 'com.whatspos.sdk:stackly-android-sdk:1.7.0'
+implementation 'com.whatspos.sdk:stackly-android-sdk:1.8.1'
 ```
 
 
@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
 ## Apis
 
-com.pax.vas.Stackly.reporter.Stackly
+com.pax.vas.stackly.Stackly
 
 ### 获取实例
 
@@ -207,7 +207,7 @@ public Stackly setFlags(int flags) {}
 setFlags(ReportFlags.FLAG_ANR_WIFI_ONLY | ReportFlags.FLAG_JAVA_NOT_UPLOAD_TWO_HOURS)
 ```
 
-### ReportFlags
+### ReportFlags 
 
 | Parameter                        | Description                          |
 | -------------------------------- | ------------------------------------ |
@@ -474,7 +474,7 @@ e.g. To exclude 'com.google.code.gson:gson:2.8.5' in SDK, you can use below:
 
 See the [Apache 2.0 license](https://github.com/PAXSTORE/paxstore-3rd-app-android-sdk/blob/master/LICENSE) file for details.
 
-    Copyright 2018 PAX Computer Technology(Shenzhen) CO., LTD ("PAX")
+    Copyright © 2019 Shenzhen Zolon Technology Co., Ltd. All Rights Reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
